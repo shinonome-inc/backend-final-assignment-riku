@@ -14,15 +14,6 @@ class SignupView(CreateView):
         response = super().form_valid(form)
         username = form.cleaned_data["username"]
         password = form.cleaned_data["password1"]
-        
         user = authenticate(self.request, userame=username, password=password)
         login(self.request, user)
         return response
-    
-    # def form_valid(self, form):
-    #     username = form.cleaned_data["username"]
-    #     print(form.cleaned_data)
-    #     password = form.cleaned_data["password"]
-    #     user = authenticate(self.request, username=username, passward=password)
-    #     login(self.request, user)
-    #     return = super().form_valid(form)
